@@ -61,7 +61,7 @@ public class Main {
                 correctAnswersCount++;
             }
         }
-
+///hghgjjhgghjghj
         // Виведення результатів
         System.out.println("\nТестування завершено!");
         System.out.println("Ви дали правильну відповідь на " + correctAnswersCount + " з " + totalQuestions + " запитань.");
