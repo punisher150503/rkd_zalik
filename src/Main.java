@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Питання та відповіді
+        // list of questions
         String[] questions = {
                 "What is the third person singular form of the verb 'to be'?",
                 "What is the negative form of the sentence 'She plays tennis'?",
@@ -13,6 +13,7 @@ public class Main {
                 "What is the opposite of the word 'always'?"
         };
 
+        //list of available answers
         String[][] options = {
                 {"a. am", "b. is", "c. are", "d. be"},
                 {"a. She doesn't plays tennis.", "b. She don't plays tennis.", "c. She not plays tennis.", "d. She doesn't play tennis."},
@@ -23,35 +24,35 @@ public class Main {
 
         int[] correctAnswers = {2, 1, 2, 1, 1};
 
-        // Ім'я курсанта
-        System.out.print("Введіть ваше прізвище, ім'я та по батькові: ");
+        //cadet entering his name
+        System.out.print("Enter your surname, name and patronymic: ");
         String fullName = scanner.nextLine();
 
-        System.out.println("Привіт, " + fullName + "!");
-        System.out.println("Почнемо тестування.");
+        System.out.println("Hello, " + fullName + "!");
+        System.out.println("So, let's go.");
 
-        // Змінні для підрахунку результатів
+        //calculate results
         int totalQuestions = questions.length;
         int correctAnswersCount = 0;
 
-        // Проходження тесту
+        //this is testing
         for (int i = 0; i < totalQuestions; i++) {
-            System.out.println("\nПитання " + (i + 1) + ":");
+            System.out.println("\nQuestion " + (i + 1) + ":");
             System.out.println(questions[i]);
             for (String option : options[i]) {
                 System.out.println(option);
             }
 
-            System.out.print("Введіть відповідь (a, b, c, d) або q для виходу: ");
+            System.out.print("Enter your answer (a, b, c, d) or *q* to exit: ");
             String answer = scanner.nextLine();
 
             if (answer.equals("q")) {
-                System.out.println("Ви вийшли з програми.");
+                System.out.println("You closed the program.");
                 return;
             }
 
             if (!answer.matches("[a-d]")) {
-                System.out.println("Будь ласка, введіть правильну букву варіанту (a, b, c, d).");
+                System.out.println("Incorrect input! You must input only (a, b, c, d).");
                 i--;
                 continue;
             }
@@ -61,23 +62,23 @@ public class Main {
                 correctAnswersCount++;
             }
         }
-///hghgjjhgghjghj
-        // Виведення результатів
-        System.out.println("\nТестування завершено!");
-        System.out.println("Ви дали правильну відповідь на " + correctAnswersCount + " з " + totalQuestions + " запитань.");
-        double percentage = (double) correctAnswersCount / totalQuestions * 100;
-        System.out.println("Ваш результат: " + percentage + "% правильних відповідей.");
 
-        System.out.print("Введіть пароль для перегляду правильних відповідей: ");
+        //results output
+        System.out.println("\nEnd of the test!");
+        System.out.println("You answer correctly on" + correctAnswersCount + " from " + totalQuestions + " answers.");
+        double percentage = (double) correctAnswersCount / totalQuestions * 100;
+        System.out.println("Your result is: " + percentage + "% correct answers.");
+
+        System.out.print("Enter the password to see the correct answers: ");
         String password = scanner.nextLine();
 
         if (password.equals("1111")) {
-            System.out.println("Правильні відповіді:");
+            System.out.println("Correct answers:");
             for (int i = 0; i < totalQuestions; i++) {
-                System.out.println("Питання " + (i + 1) + ": " + options[i][correctAnswers[i] - 1]);
+                System.out.println("Question " + (i + 1) + ": " + options[i][correctAnswers[i] - 1]);
             }
         } else {
-            System.out.println("Неправильний пароль. Ви не маєте доступу до правильних відповідей.");
+            System.out.println("Incorrect password. You have not access to correct answers.");
         }
 
     }
